@@ -1,9 +1,35 @@
-<!doctype html>
+
 <html>
-  <head>
-    <title>Placeholder Title</title>
-  </head>
-  <body>
-    <p>Nothing to see here... move along.</p>
-  </body>
+    <header>
+    </header>
+    <body>
+        <h1>Shop Release</h1>
+        <div id="ttr">
+            0:00
+        </div>
+        <script>
+            const dayToMillis = 24 * 60 * 60 * 1000
+            const hourToMillis = 60 * 60 * 1000
+            const minToMillis = 60 * 1000
+            let target = new Date("2021-09-01T00:00:00")
+            //new Date()
+            var runFunction = function () {
+                let delta = target - Date.now()
+                let days = Math.floor(delta / dayToMillis)
+                delta = delta - days * dayToMillis
+                let hours = Math.floor(delta / hourToMillis)
+                delta = delta - hours * hourToMillis
+                let min = Math.floor(delta / minToMillis)
+                delta = delta - min * minToMillis
+                let sec = Math.floor(delta / 1000)
+
+                let outString = days + ":" + hours + ":" + min + ":" + sec
+
+                document.getElementById("ttr").innerHTML = outString
+                //console.log("noch: " + days + ":" + hours + ":" + min + ":" + sec)
+            }
+            var t = setInterval(runFunction, 1000)
+        </script>
+
+    </body>
 </html>
